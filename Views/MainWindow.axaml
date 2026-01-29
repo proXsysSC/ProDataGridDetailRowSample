@@ -15,12 +15,14 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-	<Grid RowDefinitions="auto,*">
-		<Label Content="Books list"/>
-	    <DataGrid ItemsSource ="{Binding Books}" IsReadOnly="True" ShowTotalSummary="True">
+	<Grid RowDefinitions="auto,auto">
+		<Label Grid.Row="0" Content="Books list demo"/>
+	    <DataGrid Grid.Row="1" ItemsSource ="{Binding Books}" IsReadOnly="True" ShowTotalSummary="True"
+				  RowDetailsVisibilityMode="VisibleWhenSelected"
+				  >
 			<DataGrid.Columns>
 				<DataGridTextColumn Header="Title" Binding="{Binding Title}"/>
-				<DataGridNumericColumn Header="Stock" Binding="{Binding InStock}">
+				<DataGridNumericColumn Header="Stock" Width="200" Binding="{Binding InStock}">
 					<DataGridNumericColumn.Summaries>
 						<DataGridAggregateSummaryDescription 
 							Title="∑"
